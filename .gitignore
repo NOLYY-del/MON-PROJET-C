@@ -1,55 +1,41 @@
-# Prerequisites
-*.d
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
-
-# debug information files
-*.dwo
+ struct etudiant { 
+    char code_natinale[10]; 
+    char nom[20]; 
+    char prenom[20];
+    char filiere[20];
+    float note[7]
+    };
+int main(){
+    int S,N,i,j
+    struct etudiant tab [180];
+    do{
+        printf("donner le nombre des etudiants : ");
+        scanf("%d",&N);
+    }while(N<1 || N>180);
+    for(i=0;i<N;i++){
+        printf("donner les informations de l'etudiant %d\n",i+1);
+        printf("code natinale : ");
+        scanf("%s",tab[i].code_natinale);
+        printf("nom : ");
+        scanf("%s",tab[i].nom);
+        printf("prenom : ");
+        scanf("%s",tab[i].prenom);
+        printf("filiere : ");
+        scanf("%s",tab[i].filiere);
+        for(j=0;j<7;j++){
+            printf("donner la note %d : ",j+1);
+            scanf("%f",&tab[i].note[j]);
+             S=S+tab[i].note[j];
+              S=S/7;
+        }
+    }
+     for(i=0;i<N;i++){
+        printf("etudiant %d\n",i);
+        printf("nom : %s\tprenom : %s\tfiliere : %s\tmoyenne : %.2f\n",tab[i].nom,tab[i].prenom,tab[i].filiere,S[i]);
+       for(j=0;j<7;j++){
+        printf("note %d : %.2f\n",j,tab[i].note[j]);
+        }
+     }
+    return 0;   
+}
